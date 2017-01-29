@@ -1,0 +1,52 @@
+{
+	"name" : "My logical views",
+	"nodes" : [
+		{
+		"id" : "100",
+		"name" : "Shared - Public",
+		"description" : "Files with aspect qshare:shared",
+		"nodes" : [
+			{
+				"id" : "101",
+				"name" : "Shared - Public documents",
+				"description" : "ASPECT:'qshare:shared'",
+				"search" : {
+					"language" : "fts-alfresco",
+					"query" : "(PATH:'%ACTUAL_PATH%//*') AND ASPECT:'qshare:shared'"
+				}
+			},{
+				"id" : "102",
+				"name" : "Shared - Public documents by ccl001",
+				"description" : "ASPECT:'qshare:shared' AND @qshare:sharedBy:ccl001",
+				"search" : {
+					"language" : "fts-alfresco",
+					"query" : "(PATH:'%ACTUAL_PATH%//*') AND ASPECT:'qshare:shared' AND @qshare:sharedBy:ccl001"
+				}
+			},{
+				"id" : "103",
+				"name" : "Shared - Public documents with effectivity properties",
+				"description" : "ASPECT:'qshare:shared' AND ASPECT:'cm:effectivity'",
+				"search" : {
+					"language" : "fts-alfresco",
+					"query" : "(PATH:'%ACTUAL_PATH%//*') AND ASPECT:'qshare:shared' AND ASPECT:'cm:effectivity'"
+				}
+			},{
+				"id" : "104",
+				"name" : "Shared - Public documents after 2016",
+				"description" : "ASPECT:'qshare:shared' AND @cm:modified:['2016-01-01' TO NOW]",
+				"search" : {
+					"language" : "fts-alfresco",
+					"query" : "(PATH:'%ACTUAL_PATH%//*') AND ASPECT:'qshare:shared' AND @cm:modified:['2016-01-01' TO NOW]"
+				}
+			},{
+				"id" : "105",
+				"name" : "Shared - Public documents before 2016",
+				"description" : "ASPECT:'qshare:shared' AND @cm:modified:[MIN TO '2016-01-01']",
+				"search" : {
+					"language" : "fts-alfresco",
+					"query" : "(PATH:'%ACTUAL_PATH%//*') AND ASPECT:'qshare:shared' AND @cm:modified:[MIN TO '2016-01-01']"
+				}
+			}]
+		}
+	]
+}

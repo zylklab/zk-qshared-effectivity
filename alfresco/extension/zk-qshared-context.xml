@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+
+    <!-- Registration of JS content behaviour on Add Aspect-->
+    <bean id="OnAddAspectPolicyOnQshared" class="org.alfresco.repo.policy.registration.ClassPolicyRegistration" parent="policyRegistration">
+
+        <property name="policyName">
+            <value>{http://www.alfresco.org}onAddAspect</value>
+        </property>
+
+        <property name="className">
+            <value>{http://www.alfresco.org/model/qshare/1.0}shared</value>
+        </property>
+
+        <property name="behaviour">
+            <bean class="org.alfresco.repo.jscript.ScriptBehaviour" parent="scriptBehaviour">
+                <property name="location">
+                    <bean class="org.alfresco.repo.jscript.ClasspathScriptLocation">
+                        <constructor-arg>
+                             <value>alfresco/resources/scripts/add-aspect-effectivity.js</value>
+                        </constructor-arg>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- Registration of custom JS action -->
+    <!-- 
+    <bean id="execute-zk-qshared-action" parent="script">
+        <property name="scriptLocation">
+            <bean class="org.alfresco.repo.jscript.ClasspathScriptLocation">
+                <constructor-arg>
+                    <value>alfresco/resources/scripts/qshared.js</value>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+    -->
+
+
+    <!-- TODO --> 
+    <!-- Registration of ACP import process in bootstrap -->
+    <!--
+    <bean id="zpm.patch.dataDict.script" class="org.alfresco.repo.admin.patch.impl.GenericBootstrapPatch" parent="basePatch" >
+        <property name="id"><value>zpm.patch.dataDict.script</value></property>
+        <property name="description"><value>zpm.patch.dataDict.script.description</value></property>
+        <property name="fixesFromSchema"><value>0</value></property>
+        <property name="fixesToSchema"><value>${version.schema}</value></property>
+        <property name="targetSchema"><value>10000</value></property>
+        <property name="importerBootstrap">
+            <ref bean="spacesBootstrap" />
+        </property>
+        <property name="bootstrapView">
+            <props>
+              <prop key="path">/${spaces.company_home.childname}/${spaces.dictionary.childname}</prop>
+              <prop key="location">alfresco/extension/resources/DataDictionary/zk-scripts.acp</prop>
+            </props>
+        </property>
+    </bean>
+    -->
+
+</beans>
