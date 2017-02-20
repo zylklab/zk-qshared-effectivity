@@ -17,6 +17,14 @@ Note: this jar would only work if Alfresco repo and Alfresco Share are deployed 
  - Once started, you need finally to copy (alfresco/resources/scripts/qshared.js) script into Data Dictionary / Scripts folder for the cronjob execution.
  - Additionaly, you may also use a virtual folder template located at (alfresco/resources/json/qsharedFolder.json)
 
+## Using
+
+When the content is shared, a custom behaviour adds cm:effectivity aspect and sets 30 days period for effectivity. Once the effectivity period is over, a custom quartz job removes the qshare:shared aspect, unpublishing the url.
+
+![Screenshot Behaviour](screenshots/qshared2.png)
+
+A custom metadata template and indicator improves the visualization of the simple and detailed views of the documents in the Document Library.
+
 ## Things to improve / TODO  
  - [ ] Ant file for generating jar file and local tasks for a local deployment
  - [ ] Use Alfresco Maven SDK 
