@@ -6,7 +6,7 @@ This customization provides a custom behaviour when qshared aspect is applied on
 
 You may pack it with jar command. Go into the directory that you unzipped, or cloned via git:
 
-    $ git clone https://github.com/CesarCapillas/zk-qshared-effectivity
+    $ git clone https://github.com/zylklab/zk-qshared-effectivity
     $ cd zk-qshared-effectivity
     $ jar -cf zk-qshared-effectivity.jar *
 
@@ -18,12 +18,12 @@ Note: this jar would only work if Alfresco repo and Alfresco Share are deployed 
  - Additionaly, you may also use a virtual folder template located at (alfresco/resources/json/qsharedFolder.json)
 
 ## Things to improve / TODO  
- - Ant file for generating jar file and local tasks for a local deployment
- - Use Alfresco Maven SDK 
- - Separate in two AMPs
- - Deploy in bootstrap ACP with qshared.js script and smart template
- - Configure cronjob in alfresco-global.properties (now in zk-scheduled-action-services-context.xml)
- - Configure publication days in alfresco-global.properties (now is 30 in add-aspect-effectivity.js)
+ - [ ] Ant file for generating jar file and local tasks for a local deployment
+ - [ ] Use Alfresco Maven SDK 
+ - [ ] Separate in two AMPs
+ - [ ] Deploy in bootstrap ACP with qshared.js script and smart template
+ - [ ] Configure cronjob in alfresco-global.properties (now in zk-scheduled-action-services-context.xml)
+ - [ ] Configure publication days in alfresco-global.properties (now is 30 in add-aspect-effectivity.js)
 
 ## Links
 
