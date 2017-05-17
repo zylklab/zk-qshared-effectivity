@@ -19,6 +19,15 @@ The generated AMPs are located in corresponding target directories.
 ## Installing
  - Just copy the corresponding AMP into $ALF_HOME/amps and $ALF_HOME/amps_share, stop Alfresco service, apply AMPs script ($ALF_HOME/bin/apply_amps.sh) and start Alfresco service.
 
+## Configuration
+
+The cronjob and the expiration days for public urls may be configured in alfresco-global.properties file:
+
+```
+qshared.effectivity.cron=0 0 5 * * ?
+qshared.effectivity.expiration.days=30
+```
+
 ## Using
 
 When the content is shared, a custom behaviour adds cm:effectivity aspect and sets 30 days period for effectivity. Once the effectivity period is over, a custom quartz job removes the qshare:shared aspect, unpublishing the url.
