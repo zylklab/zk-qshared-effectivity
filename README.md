@@ -4,18 +4,20 @@ This customization provides a custom behaviour when qshared aspect is applied on
 
 ## Packaging
 
-You may pack it with jar command. Go into the directory that you unzipped, or cloned via git:
+Just generate maven packages. Go into the directory that you unzipped, or cloned via git:
 
     $ git clone https://github.com/zylklab/zk-qshared-effectivity
     $ cd zk-qshared-effectivity
-    $ jar -cf zk-qshared-effectivity.jar *
+    $ cd zk-qshared-effectivity-repo
+    $ mvn clean && mvn package -DskipTests=true
+    $ cd ..
+    $ cd zk-qshared-effectivity-share
+    $ mvn clean && mvn package -DskipTests=true
 
-Note: this jar would only work if Alfresco repo and Alfresco Share are deployed in the same Tomcat instance. 
+The generated AMPs are located in corresponding target directories. 
 
 ## Installing
- - Just copying the corresponding jar into $TOMCAT/shared/lib and restart Alfresco service.
- - Once started, you need finally to copy (alfresco/resources/scripts/qshared.js) script into Data Dictionary / Scripts folder for the cronjob execution.
- - Additionaly, you may also use a virtual folder template located at (alfresco/resources/json/qsharedFolder.json)
+ - Just copy the corresponding AMP into $ALF_HOME/amps and $ALF_HOME/amps_share, stop Alfresco service, apply AMPs script ($ALF_HOME/bin/apply_amps.sh) and start Alfresco service.
 
 ## Using
 
@@ -25,13 +27,8 @@ When the content is shared, a custom behaviour adds cm:effectivity aspect and se
 
 A custom metadata template and indicator improves the visualization of the simple and detailed views of the documents in the Document Library.
 
-## Things to improve / TODO  
- - [ ] Ant file for generating jar file and local tasks for a local deployment
- - [ ] Use Alfresco Maven SDK 
- - [ ] Separate in two AMPs
- - [ ] Deploy in bootstrap ACP with qshared.js script and smart template
- - [ ] Configure cronjob in alfresco-global.properties (now in zk-scheduled-action-services-context.xml)
- - [ ] Configure publication days in alfresco-global.properties (now is 30 in add-aspect-effectivity.js)
+## More config
+ - Additionaly, you may also use a virtual folder template located at (alfresco/resources/json/qsharedFolder.json)
 
 ## Links
 

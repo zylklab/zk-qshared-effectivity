@@ -1,0 +1,36 @@
+<extension>
+  <modules>
+    <module>
+      <id>Quick shared with effectivity</id>
+      <version>1.0</version>
+      <auto-deploy>true</auto-deploy>
+         <configurations>
+
+            <config evaluator="string-compare" condition="DocLibCustom">
+              <dependencies>
+                  <js src="/custom/qshared-cmto-metadata.js" />
+              </dependencies>
+            </config>
+            
+            <config evaluator="string-compare" condition="DocumentLibrary">
+               <indicators>
+                  <indicator id="zk-qshared-indicator" index="10" label="qshared.indicator">
+                          <evaluator>evaluator.doclib.metadata.isQsharedContent</evaluator>
+                  </indicator>
+               </indicators>
+               
+               <metadata-templates>
+                <template id="isQsharedContent">
+                  <evaluator>evaluator.doclib.metadata.isQsharedContent</evaluator>
+                  <line index="10" id="date" view="detailed">{date}{size}</line>
+                  <line index="20" id="QsharedContent" evaluator="evaluator.doclib.metadata.isQsharedContent">{QSHARED}</line>
+                  <line index="30" id="tags" view="detailed">{tags}</line>
+                  <line index="40" id="social" view="detailed">{social}</line>
+                </template>
+               </metadata-templates>
+            </config>
+
+         </configurations>    
+    </module>
+  </modules>
+</extension>
