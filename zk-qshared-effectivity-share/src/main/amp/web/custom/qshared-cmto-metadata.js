@@ -20,7 +20,8 @@
 
                 // Get labels 
                 //var label_valido_desde  = this.msg("qshared.from") || "Valido desde";
-                var label_valido_hasta  = this.msg("qshared.to") || "Hasta";
+                var label_valido_hasta  = this.msg("qshared.to") || "Valid until";
+                var label_url_qshared   = this.msg("qshared.label") || "Public URL";
 
                 var to     = properties["cm:to"];
 
@@ -32,7 +33,7 @@
                 }
 
                 html = '<span class="item">';
-                html = html + ' <b>[Publicado]</b>';
+                html = html + ' <b>' + label_url_qshared + '</b>';
                 html = html + ' &nbsp;&nbsp;&nbsp;'+label_valido_hasta+': ' + formattedDate2;
                 html = html + '</span>';
                 return html;
